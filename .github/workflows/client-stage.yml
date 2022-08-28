@@ -1,0 +1,43 @@
+name: Deploy Client - Stage
+
+on:
+    push:
+        paths:
+            - 'client/**'
+        branches: [dev]
+
+defaults:
+    run:
+        working-directory: client
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        env:
+            VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ldWN6b2phYWxlZ3VzenB1dHN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjEzNzI5MjEsImV4cCI6MTk3Njk0ODkyMX0.7fmpVvZy5-qBVvPa8JK225Xo9exVdNlqSZDTHjkFZAM
+            VITE_SUPABASE_URL: https://neuczojaaleguszputst.supabase.co
+
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            # Install node version 16
+            - uses: actions/setup-node@v2-beta
+              with:
+                  node-version: '16'
+
+            # Install global npm packages
+            - name: Install global packages
+              run: npm install --global yarn surge
+
+            # Install yarn packages
+            - name: Install packages
+              run: yarn
+
+            # Build react app
+            - name: Build the app
+              run: yarn run build
+
+            # Deploy to the defined URL using the token
+            - name: Deploy to surge
+              run: surge ./dist outrageous-quarter.surge.sh --token ${{secrets.SURGE_TOKEN}}
