@@ -1,7 +1,7 @@
 name: CI - Supabase
 
 on:
-    push:
+    pull-request:
         paths:
             - 'server/**'
         branches: [dev, main]

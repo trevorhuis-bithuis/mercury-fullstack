@@ -3,6 +3,34 @@
 -- and may require manual changes to the script to ensure changes are applied in the correct order.
 -- Please report an issue for any failure with the reproduction steps.
 
+CREATE TABLE IF NOT EXISTS public.profiles
+(
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
+    user_id uuid NOT NULL,
+    email text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT profiles_pkey PRIMARY KEY (id),
+    CONSTRAINT profiles_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES auth.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.profiles
+    OWNER to postgres;
+
+ALTER TABLE IF EXISTS public.profiles
+    ENABLE ROW LEVEL SECURITY;
+
+GRANT ALL ON TABLE public.profiles TO anon;
+
+GRANT ALL ON TABLE public.profiles TO authenticated;
+
+GRANT ALL ON TABLE public.profiles TO postgres;
+
+GRANT ALL ON TABLE public.profiles TO service_role;
+
 CREATE TABLE IF NOT EXISTS public.transactions
 (
     id uuid NOT NULL DEFAULT uuid_generate_v4(),
@@ -104,34 +132,6 @@ GRANT ALL ON TABLE public.groups TO anon;
 GRANT ALL ON TABLE public.groups TO service_role;
 
 GRANT ALL ON TABLE public.groups TO postgres;
-
-CREATE TABLE IF NOT EXISTS public.profiles
-(
-    id uuid NOT NULL DEFAULT uuid_generate_v4(),
-    user_id uuid NOT NULL,
-    email text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT profiles_pkey PRIMARY KEY (id),
-    CONSTRAINT profiles_user_id_fkey FOREIGN KEY (user_id)
-        REFERENCES auth.users (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.profiles
-    OWNER to postgres;
-
-ALTER TABLE IF EXISTS public.profiles
-    ENABLE ROW LEVEL SECURITY;
-
-GRANT ALL ON TABLE public.profiles TO anon;
-
-GRANT ALL ON TABLE public.profiles TO authenticated;
-
-GRANT ALL ON TABLE public.profiles TO postgres;
-
-GRANT ALL ON TABLE public.profiles TO service_role;
 
 ALTER TABLE IF EXISTS public.budgets
     ALTER COLUMN id SET DEFAULT uuid_generate_v4();
