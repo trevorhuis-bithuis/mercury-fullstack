@@ -1,10 +1,10 @@
-name: Deploy Client
+name: Deploy Client - Stage
 
 on:
     push:
         paths:
             - 'client/**'
-        branches: [main]
+        branches: [dev]
 
 defaults:
     run:
@@ -13,6 +13,10 @@ defaults:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
+        env:
+            VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ldWN6b2phYWxlZ3VzenB1dHN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjEzNzI5MjEsImV4cCI6MTk3Njk0ODkyMX0.7fmpVvZy5-qBVvPa8JK225Xo9exVdNlqSZDTHjkFZAM
+            VITE_SUPABASE_URL: https://neuczojaaleguszputst.supabase.co
 
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
