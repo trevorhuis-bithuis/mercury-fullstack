@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import supabase from '../common/supabase';
 
-export default function Budget() {
+export default function Dashboard() {
     return (
         <main style={{ padding: '1rem 0' }}>
-            <div className='text-2xl'>Budgets</div>
+            <div className='text-2xl'>Dashboard</div>
             <Link className='text-lg' to='/'>
                 Home
             </Link>
