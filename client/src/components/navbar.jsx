@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import supabase from '../common/supabase';
@@ -7,19 +7,29 @@ import supabase from '../common/supabase';
 export default function Navbar() {
     const [loggedIn, setLoggedIn] = useState(false);
 
+    const location = useLocation();
+
     useEffect(() => {
-        const user = supabase.auth.user();
-        if (user !== null) setLoggedIn(true);
-    }, [loggedIn]);
+        updateAuthButtons();
+        updateCurrentTabs();
+    }, [loggedIn, location]);
 
     supabase.auth.onAuthStateChange(async (event, session) => {
+        updateAuthButtons();
+    });
+
+    function updateAuthButtons() {
         const user = supabase.auth.user();
         if (user !== null) {
             setLoggedIn(true);
         } else {
             setLoggedIn(false);
         }
-    });
+    }
+
+    function updateCurrentTabs() {
+        console.log(location.pathname);
+    }
 
     const navigate = useNavigate();
 
@@ -105,18 +115,34 @@ export default function Navbar() {
                                     />
                                 </div>
                                 <div className='hidden sm:ml-6 sm:flex sm:space-x-8'>
-                                    <a
-                                        href='#'
-                                        className='border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+                                    <Link
+                                        to='/dashboard'
+                                        className={`${
+                                            location.pathname === '/dashboard'
+                                                ? 'border-indigo-500'
+                                                : 'border-transparent'
+                                        } ${
+                                            location.pathname === '/dashboard'
+                                                ? 'text-gray-900'
+                                                : 'text-gray-500'
+                                        } hover:border-gray-300 hover:text-gray-700 active:border-indigo-500 active:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                                     >
                                         Dashboard
-                                    </a>
-                                    <a
-                                        href='#'
-                                        className='border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+                                    </Link>
+                                    <Link
+                                        to='/budget'
+                                        className={`${
+                                            location.pathname === '/budget'
+                                                ? 'border-indigo-500'
+                                                : 'border-transparent'
+                                        } ${
+                                            location.pathname === '/budget'
+                                                ? 'text-gray-900'
+                                                : 'text-gray-500'
+                                        } hover:border-gray-300 hover:text-gray-700 active:border-indigo-500 active:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                                     >
                                         Budget
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
@@ -126,37 +152,43 @@ export default function Navbar() {
                     </div>
 
                     <Disclosure.Panel className='sm:hidden'>
-                        Hidden
+                        <div className='pt-2 pb-4 space-y-1'>
+                            <Link to='/dashboard'>
+                                <Disclosure.Button
+                                    as='a'
+                                    className={`${
+                                        location.pathname === '/dashboard'
+                                            ? 'border-indigo-500'
+                                            : 'border-transparent'
+                                    } ${
+                                        location.pathname === '/dashboard'
+                                            ? 'text-gray-900'
+                                            : 'text-gray-500'
+                                    } hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 active:border-indigo-500 active:text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
+                                >
+                                    Dashboard
+                                </Disclosure.Button>
+                            </Link>
+                            <Link to='/budget'>
+                                <Disclosure.Button
+                                    as='a'
+                                    className={`${
+                                        location.pathname === '/budget'
+                                            ? 'border-indigo-500'
+                                            : 'border-transparent'
+                                    } ${
+                                        location.pathname === '/budget'
+                                            ? 'text-gray-900'
+                                            : 'text-gray-500'
+                                    } hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 active:border-indigo-500 active:text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
+                                >
+                                    Budget
+                                </Disclosure.Button>
+                            </Link>
+                        </div>
                     </Disclosure.Panel>
                 </>
             )}
         </Disclosure>
     );
-
-    // return (
-    //     <div className='flex flex-row m-4'>
-    //         <div className='basis-1/3'>
-    //             <div className='text-2xl'>Mercury</div>
-    //         </div>
-    //         <div className='basis-1/3'>Links</div>
-    //         <div className='basis-1/3 flex flex-row justify-end '>
-    //             <Link to='/login'>
-    //                 <button
-    //                     type='button'
-    //                     className='inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-    //                 >
-    //                     Login
-    //                 </button>
-    //             </Link>
-    //             <Link to='/register'>
-    //                 <button
-    //                     type='button'
-    //                     className='inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-    //                 >
-    //                     Register
-    //                 </button>
-    //             </Link>
-    //         </div>
-    //     </div>
-    // );
 }

@@ -6,23 +6,19 @@ import './index.css';
 import Budget from './routes/budget';
 import Login from './routes/login';
 import Register from './routes/register';
+import PageNotFound from './components/pageNotFound';
+import Dashboard from './routes/dashboard';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<App />}>
+                    <Route path='dashboard' element={<Dashboard />} />
                     <Route path='budget' element={<Budget />} />
                     <Route path='login' element={<Login />} />
                     <Route path='register' element={<Register />} />
-                    <Route
-                        path='*'
-                        element={
-                            <main style={{ padding: '1rem' }}>
-                                <p>There's nothing here!</p>
-                            </main>
-                        }
-                    />
+                    <Route path='*' element={<PageNotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>

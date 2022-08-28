@@ -1,0 +1,43 @@
+name: Deploy Client - Production
+
+on:
+    push:
+        paths:
+            - 'client/**'
+        branches: [main]
+
+defaults:
+    run:
+        working-directory: client
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        env:
+            VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBicG50Y3J5aGJyenhmaXp5YXN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjEzNzQyNDYsImV4cCI6MTk3Njk1MDI0Nn0.FPbfiQnoU9H9oMTDacYb9iClG8SCZ-e8dgGuh-46AUw
+            VITE_SUPABASE_URL: https://pbpntcryhbrzxfizyasv.supabase.co
+
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            # Install node version 16
+            - uses: actions/setup-node@v2-beta
+              with:
+                  node-version: '16'
+
+            # Install npm packages
+            - name: Install packages
+              run: npm install
+
+            # Build react app
+            - name: Build the app
+              run: npm run build
+
+            # Install Surge
+            - name: Install Surge
+              run: npm install -g surge
+
+            # Deploy to the defined URL using the token
+            - name: Deploy to surge
+              run: surge ./dist smoggy-mountain.surge.sh --token ${{secrets.SURGE_TOKEN}}
