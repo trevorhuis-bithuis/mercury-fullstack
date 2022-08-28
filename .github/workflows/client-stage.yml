@@ -40,4 +40,4 @@ jobs:
 
             # Deploy to the defined URL using the token
             - name: Deploy to surge
-              run: surge ./dist smoggy-mountain.surge.sh --token ${{secrets.SURGE_TOKEN}}
+              run: surge ./dist outrageous-quarter.surge.sh --token ${{secrets.SURGE_TOKEN}}
