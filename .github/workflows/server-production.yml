@@ -1,4 +1,4 @@
-name: Deploy Migrations to Stage
+name: Deploy Migrations to Production
 
 on:
     push:
