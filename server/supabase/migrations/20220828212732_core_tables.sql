@@ -21,12 +21,8 @@ GRANT ALL ON TABLE public.profiles TO service_role;
 ALTER TABLE IF EXISTS public.budgets
 ALTER COLUMN id
 SET DEFAULT uuid_generate_v4();
-ALTER TABLE IF EXISTS public.budgets
-    RENAME id TO month;
 ALTER TABLE public.budgets
 ALTER COLUMN month TYPE integer;
-ALTER TABLE IF EXISTS public.budgets
-    RENAME id TO year;
 ALTER TABLE public.budgets
 ALTER COLUMN year TYPE integer;
 ALTER TABLE IF EXISTS public.budgets
