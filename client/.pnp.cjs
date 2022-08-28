@@ -37,7 +37,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@headlessui/react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:1.6.6"],
             ["@heroicons/react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.8"],
-            ["@supabase/auth-ui-react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.1.7"],
             ["@supabase/supabase-js", "npm:1.35.6"],
             ["@types/react", "npm:18.0.17"],
             ["@types/react-dom", "npm:18.0.6"],
@@ -652,68 +651,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@stitches/core", [
-        ["npm:1.2.8", {
-          "packageLocation": "./.yarn/cache/@stitches-core-npm-1.2.8-459f395a74-3a76a697b1.zip/node_modules/@stitches/core/",
-          "packageDependencies": [
-            ["@stitches/core", "npm:1.2.8"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@stitches/react", [
-        ["npm:1.2.8", {
-          "packageLocation": "./.yarn/cache/@stitches-react-npm-1.2.8-445a1042b8-029795323c.zip/node_modules/@stitches/react/",
-          "packageDependencies": [
-            ["@stitches/react", "npm:1.2.8"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:016292d5675363b118e0c505a6a1be07320faff36b61d447c0e24320ddb4efc2848490dbb915475402c2c617c70715016988ab0031d86335633c576dd90d0249#npm:1.2.8", {
-          "packageLocation": "./.yarn/__virtual__/@stitches-react-virtual-2485561d39/0/cache/@stitches-react-npm-1.2.8-445a1042b8-029795323c.zip/node_modules/@stitches/react/",
-          "packageDependencies": [
-            ["@stitches/react", "virtual:016292d5675363b118e0c505a6a1be07320faff36b61d447c0e24320ddb4efc2848490dbb915475402c2c617c70715016988ab0031d86335633c576dd90d0249#npm:1.2.8"],
-            ["@types/react", "npm:18.0.17"],
-            ["react", "npm:18.2.0"]
-          ],
-          "packagePeers": [
-            "@types/react",
-            "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@supabase/auth-ui-react", [
-        ["npm:0.1.7", {
-          "packageLocation": "./.yarn/cache/@supabase-auth-ui-react-npm-0.1.7-3eb6743552-9b2b2cfc9c.zip/node_modules/@supabase/auth-ui-react/",
-          "packageDependencies": [
-            ["@supabase/auth-ui-react", "npm:0.1.7"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.1.7", {
-          "packageLocation": "./.yarn/__virtual__/@supabase-auth-ui-react-virtual-016292d567/0/cache/@supabase-auth-ui-react-npm-0.1.7-3eb6743552-9b2b2cfc9c.zip/node_modules/@supabase/auth-ui-react/",
-          "packageDependencies": [
-            ["@supabase/auth-ui-react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.1.7"],
-            ["@stitches/core", "npm:1.2.8"],
-            ["@stitches/react", "virtual:016292d5675363b118e0c505a6a1be07320faff36b61d447c0e24320ddb4efc2848490dbb915475402c2c617c70715016988ab0031d86335633c576dd90d0249#npm:1.2.8"],
-            ["@types/react", "npm:18.0.17"],
-            ["@types/react-dom", "npm:18.0.6"],
-            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"],
-            ["lodash", "npm:4.17.21"],
-            ["prop-types", "npm:15.8.1"],
-            ["react", "npm:18.2.0"],
-            ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.2.0"]
-          ],
-          "packagePeers": [
-            "@types/react-dom",
-            "@types/react",
-            "react-dom",
-            "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@supabase/functions-js", [
         ["npm:1.3.4", {
           "packageLocation": "./.yarn/cache/@supabase-functions-js-npm-1.3.4-d5f33f5bd7-9101b90784.zip/node_modules/@supabase/functions-js/",
@@ -1195,7 +1132,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["client", "workspace:."],
             ["@headlessui/react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:1.6.6"],
             ["@heroicons/react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.8"],
-            ["@supabase/auth-ui-react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.1.7"],
             ["@supabase/supabase-js", "npm:1.35.6"],
             ["@types/react", "npm:18.0.17"],
             ["@types/react-dom", "npm:18.0.6"],
@@ -2169,15 +2105,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["lodash", [
-        ["npm:4.17.21", {
-          "packageLocation": "./.yarn/cache/lodash-npm-4.17.21-6382451519-eb835a2e51.zip/node_modules/lodash/",
-          "packageDependencies": [
-            ["lodash", "npm:4.17.21"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["loose-envify", [
         ["npm:1.4.0", {
           "packageLocation": "./.yarn/cache/loose-envify-npm-1.4.0-6307b72ccf-6517e24e0c.zip/node_modules/loose-envify/",
@@ -2521,15 +2448,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["object-assign", [
-        ["npm:4.1.1", {
-          "packageLocation": "./.yarn/cache/object-assign-npm-4.1.1-1004ad6dec-fcc6e4ea8c.zip/node_modules/object-assign/",
-          "packageDependencies": [
-            ["object-assign", "npm:4.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["object-hash", [
         ["npm:3.0.0", {
           "packageLocation": "./.yarn/cache/object-hash-npm-3.0.0-d941e0cabe-80b4904bb3.zip/node_modules/object-hash/",
@@ -2768,18 +2686,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["prop-types", [
-        ["npm:15.8.1", {
-          "packageLocation": "./.yarn/cache/prop-types-npm-15.8.1-17c71ee7ee-c056d3f1c0.zip/node_modules/prop-types/",
-          "packageDependencies": [
-            ["prop-types", "npm:15.8.1"],
-            ["loose-envify", "npm:1.4.0"],
-            ["object-assign", "npm:4.1.1"],
-            ["react-is", "npm:16.13.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["queue-microtask", [
         ["npm:1.2.3", {
           "packageLocation": "./.yarn/cache/queue-microtask-npm-1.2.3-fcc98e4e2d-b676f8c040.zip/node_modules/queue-microtask/",
@@ -2828,15 +2734,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [
             "@types/react",
             "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["react-is", [
-        ["npm:16.13.1", {
-          "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",
-          "packageDependencies": [
-            ["react-is", "npm:16.13.1"]
           ],
           "linkType": "HARD",
         }]
