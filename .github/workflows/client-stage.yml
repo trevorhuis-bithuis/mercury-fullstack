@@ -26,17 +26,17 @@ jobs:
               with:
                   node-version: '16'
 
-            # Install npm packages
+            # Install global npm packages
+            - name: Install global packages
+              run: npm install --global yarn surge
+
+            # Install yarn packages
             - name: Install packages
-              run: npm install
+              run: yarn
 
             # Build react app
             - name: Build the app
-              run: npm run build
-
-            # Install Surge
-            - name: Install Surge
-              run: npm install -g surge
+              run: yarn run build
 
             # Deploy to the defined URL using the token
             - name: Deploy to surge
