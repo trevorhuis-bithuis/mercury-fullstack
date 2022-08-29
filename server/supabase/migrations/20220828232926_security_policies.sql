@@ -121,6 +121,6 @@ ADD
 ALTER TABLE
     IF EXISTS public.transactions
 ADD
-    CONSTRAINT transactions_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users (id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
+    CONSTRAINT transactions_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 CREATE POLICY "Enable insert for authenticated users only" ON public.transactions AS PERMISSIVE FOR ALL TO authenticated USING ((auth.uid() = user_id)) WITH CHECK (true);
