@@ -42,15 +42,9 @@ ALTER COLUMN
     year TYPE integer;
 
 ALTER TABLE
-    IF EXISTS public.budgets RENAME id TO profile_id;
-
-ALTER TABLE
     IF EXISTS public.budgets
 ALTER COLUMN
     profile_id DROP DEFAULT;
-
-ALTER TABLE
-    IF EXISTS public.budgets RENAME id TO result;
 
 ALTER TABLE
     public.budgets
@@ -113,9 +107,6 @@ GRANT ALL ON TABLE public.transactions TO authenticated;
 GRANT ALL ON TABLE public.transactions TO postgres;
 
 GRANT ALL ON TABLE public.transactions TO service_role;
-
-ALTER TABLE
-    IF EXISTS public.transactions RENAME id TO budget_id;
 
 ALTER TABLE
     IF EXISTS public.transactions
